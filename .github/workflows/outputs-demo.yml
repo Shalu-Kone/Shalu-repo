@@ -10,7 +10,7 @@ jobs:
         id: step1
         run: echo "version=0.0.1" >> $GITHUB_OUTPUT
   deploy:
-    need: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy the App
