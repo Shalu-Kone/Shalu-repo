@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Run for Shalu or Shalu-Kone 
         if: github.actor == 'Shalu' || github.actor == 'Shalu-Kone' 
-        run: echo "it is triggered by either Hari or Shalu-Kone"
+        run: echo "it is triggered by either Shalu or Shalu-Kone"
     
        
   
