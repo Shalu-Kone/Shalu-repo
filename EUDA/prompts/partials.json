@@ -1,0 +1,16 @@
+{
+  "login-id": [
+    {
+      "login-id": [
+        {
+          "name": "form-content-start",
+          "template": "partials/login-id/login-id/form-content-start.liquid"
+        },
+        {
+          "name": "form-footer-start",
+          "template": "partials/login-id/login-id/form-footer-start.liquid"
+        }
+      ]
+    }
+  ]
+}
