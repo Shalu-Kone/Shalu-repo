@@ -1,0 +1,26 @@
+{
+  "client_id": "mYk88WDYUS8PZsUJ47iFcy65f3uxR9VQ",
+  "name": "EU Data Act",
+  "app_type": "spa",
+  "oidc_conformant": true,
+
+  "callbacks": [
+    "https://oidcdebugger.com/debug",
+    "http://localhost:3000"
+  ],
+
+  "allowed_logout_urls": [
+    "https://myapp.com",
+    "http://localhost:3000"
+  ],
+
+  "web_origins": [
+    "https://myapp.com",
+    "http://localhost:3000"
+  ],
+
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "post-login": [
+    {
+      "action_name": "account-linking-action",
+      "display_name": "account-linking-action"
+    }
+  ]
+}
