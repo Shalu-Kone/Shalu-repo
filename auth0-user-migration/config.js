@@ -22,4 +22,9 @@ const configs = {
   }
 };
 
-module.exports = configs[env];
+const selected = configs[env];
+if (!selected) {
+  throw new Error(`Unsupported ENV "${env}". Expected one of: ${Object.keys(configs).join(", ")}`);
+}
+
+module.exports = selected;
