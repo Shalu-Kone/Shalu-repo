@@ -1,0 +1,18 @@
+{
+  "name": "email",
+  "strategy": "email",
+  "enabled_clients": [
+    "jy6mjsIn64b8C15j06mAjmUWgAvPdK1r"
+  ],
+  "options": {
+    "from": "no-reply@example.com",
+    "subject": "Your OTP Code",
+    "syntax": "liquid",
+    "disable_signup": false,
+    "brute_force_protection": true,
+    "otp": {
+      "length": 6,
+      "time_to_live": 300
+    }
+  }
+}
