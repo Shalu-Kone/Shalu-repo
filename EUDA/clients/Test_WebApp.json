@@ -1,22 +1,25 @@
 {
-  "client_id": "mYk88WDYUS8PZsUJ47iFcy65f3uxR9VQ",
-  "name": "EU Data Act",
+  "client_id": "jy6mjSIn64b8Cl5jO6mAjmWUgAvPdKlr",
+  "name": "My App",
   "app_type": "spa",
   "oidc_conformant": true,
 
   "callbacks": [
-    "https://oidcdebugger.com/debug",
-    "http://localhost:3000"
+    "https://oidcdebugger.com/debug"
+  ],
+
+  "allowed_origins": [
+    "https://oidcdebugger.com"
   ],
 
   "allowed_logout_urls": [
     "https://myapp.com",
-    "http://localhost:3000"
+    "https://oidcdebugger.com"
   ],
 
   "web_origins": [
     "https://myapp.com",
-    "http://localhost:3000"
+    "https://oidcdebugger.com"
   ],
 
   "grant_types": [
