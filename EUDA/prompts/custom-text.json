@@ -1,0 +1,725 @@
+{
+  "en": {
+    "login-id": {
+      "login-id": {
+        "var-back": "Back",
+        "var-login-with-otp": "Log in with one-time passcode.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Back"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "bg": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Влезте с парола",
+        "var-back": "Назад",
+        "var-login-with-otp": "Влезте с еднократна парола.",
+        "var-login-with-password": "Влезте с парола.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Назад"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "cs": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Přihlaste se pomocí hesla",
+        "var-back": "Zpět",
+        "var-login-with-otp": "Přihlaste se pomocí jednorázového hesla.",
+        "var-login-with-password": "Přihlaste se pomocí hesla.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Zpět"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "da": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Log ind med adgangskode",
+        "var-back": "Tilbage",
+        "var-login-with-otp": "Log ind med engangskode.",
+        "var-login-with-password": "Log ind med adgangskode.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Tilbage"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "nl": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Inloggen met wachtwoord",
+        "var-back": "Terug",
+        "var-login-with-otp": "Log in met een eenmalige toegangscode.",
+        "var-login-with-password": "Log in met wachtwoord.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Terug"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "en-CA": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Login with password",
+        "var-back": "Back",
+        "var-login-with-otp": "Log in with one-time passcode.",
+        "var-login-with-password": "Log in with password.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Back"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "et": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Logi sisse parooliga",
+        "var-back": "Tagasi",
+        "var-login-with-otp": "Logige sisse ühekordse parooliga",
+        "var-login-with-password": "Logi sisse parooliga.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Tagasi"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "fi": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Kirjaudu sisään salasanalla",
+        "var-back": "Takaisin",
+        "var-login-with-otp": "Kirjaudu sisään kertakäyttöisellä vahvistuskoodilla.",
+        "var-login-with-password": "Kirjaudu sisään salasanalla.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Takaisin"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "fr-CA": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Se connecter avec un mot de passe",
+        "var-back": "Retourner",
+        "var-login-with-otp": "Connectez-vous avec un mot de passe à usage unique.",
+        "var-login-with-password": "Connectez-vous avec un mot de passe.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Retourner"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "fr": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Connectez-vous avec un mot de passe.",
+        "var-back": "Retour",
+        "var-login-with-otp": "Connectez-vous avec un mot de passe à usage unique.",
+        "var-login-with-password": "Connectez-vous avec un mot de passe.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Retour"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "de": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Login mit Passwort",
+        "var-back": "Zurück",
+        "var-login-with-otp": "Mit Bestätigungscode anmelden.",
+        "var-login-with-password": "Mit Passwort anmelden.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Zurück"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "el": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Είσοδος με κωδικό πρόσβασης",
+        "var-back": "Πίσω",
+        "var-login-with-otp": "Συνδεθείτε με έναν κωδικό πρόσβασης μίας χρήσης.",
+        "var-login-with-password": "Συνδεθείτε με κωδικό πρόσβασης.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Πίσω"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "hu": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Bejelentkezés jelszóval",
+        "var-back": "Vissza",
+        "var-login-with-otp": "Jelentkezzen be egyszeri jelszóval.",
+        "var-login-with-password": "Jelentkezzen be jelszóval.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Vissza"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "is": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Skráðu þig inn með lykilorði",
+        "var-back": "Til baka",
+        "var-login-with-otp": "Skráðu þig inn með einu sinni aðgangskóða.",
+        "var-login-with-password": "Skráðu þig inn með lykilorði.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Til baka"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "it": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Accedi con password",
+        "var-back": "Indietro",
+        "var-login-with-otp": "Accedi con un codice monouso.",
+        "var-login-with-password": "Accedi con la password.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Indietro"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "lv": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Piesakieties ar paroli",
+        "var-back": "Atpakaļ",
+        "var-login-with-otp": "Piesakieties ar vienreizēju piekļuves kodu.",
+        "var-login-with-password": "Piesakieties ar paroli.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Atpakaļ"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "lt": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Prisijunkite su slaptažodžiu",
+        "var-back": "Atgal",
+        "var-login-with-otp": "Prisijunkite naudodami vienkartinį kodą.",
+        "var-login-with-password": "Prisijunkite naudodami slaptažodį.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Atgal"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "no": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Logg inn med passord",
+        "var-back": "Tilbake",
+        "var-login-with-otp": "Logg på med engangskode.",
+        "var-login-with-password": "Logg inn med passord.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Tilbake"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "pl": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Zaloguj się za pomocą hasła",
+        "var-back": "Powrót",
+        "var-login-with-otp": "Zaloguj się za pomocą jednorazowego kodu dostępu.",
+        "var-login-with-password": "Zaloguj się za pomocą hasła.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Powrót"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "pt-PT": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Entrar com senha",
+        "var-back": "Voltar",
+        "var-login-with-otp": "Faça login com uma senha de uso único.",
+        "var-login-with-password": "Faça login com senha.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Voltar"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "ro": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Autentificare cu parola",
+        "var-back": "Înapoi",
+        "var-login-with-otp": "Conectați-vă cu un cod de acces unic.",
+        "var-login-with-password": "Conectați-vă cu parolă.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Înapoi"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "sr": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Пријавите се са лозинком",
+        "var-back": "Назад",
+        "var-login-with-otp": "Пријавите се са једнократном лозинком.",
+        "var-login-with-password": "Пријавите се са лозинком.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Назад"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "sk": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Prihláste sa heslom",
+        "var-back": "Späť",
+        "var-login-with-otp": "Prihláste sa pomocou jednorazového prístupového kódu.",
+        "var-login-with-password": "Prihláste sa heslom.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Späť"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "sl": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Login with password",
+        "var-back": "Back",
+        "var-login-with-otp": "Log in with one-time passcode.",
+        "var-login-with-password": "Log in with password.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Back"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "es-MX": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Iniciar sesión con contraseña",
+        "var-back": "Atrás",
+        "var-login-with-otp": "Iniciar sesión con contraseña de un solo uso.",
+        "var-login-with-password": "Iniciar sesión con contraseña.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Atrás"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "es": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Iniciar sesión con contraseña",
+        "var-back": "Atrás",
+        "var-login-with-otp": "Inicie sesión con contraseña de un solo uso.",
+        "var-login-with-password": "Iniciar sesión con contraseña.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Atrás"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "sv": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Logga in med lösenord",
+        "var-back": "Tillbaka",
+        "var-login-with-otp": "Logga in med engångskod.",
+        "var-login-with-password": "Logga in med lösenord.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Tillbaka"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "th": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "เข้าสู่ระบบด้วยรหัสผ่าน",
+        "var-back": "กลับ",
+        "var-login-with-otp": "เข้าสู่ระบบด้วยรหัสผ่านครั้งเดียว",
+        "var-login-with-password": "เข้าสู่ระบบด้วยรหัสผ่าน",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "กลับ"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  },
+  "tr": {
+    "login-id": {
+      "login-id": {
+        "federatedConnectionButtonText": "Şifre ile giriş yapın",
+        "var-back": "Geri",
+        "var-login-with-otp": "Tek kullanımlık şifrenizle giriş yapın.",
+        "var-login-with-password": "Şifrenizle giriş yapın.",
+        "signupActionLinkText": "",
+        "footerLinkText": "",
+        "footerText": "",
+        "signupActionText": "",
+        "description": " "
+      }
+    },
+    "reset-password": {
+      "reset-password-request": {
+        "backToLoginLinkText": "Geri"
+      }
+    },
+    "login-password": {
+      "login-password": {
+        "description": " "
+      }
+    }
+  }
+}

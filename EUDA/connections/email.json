@@ -2,17 +2,24 @@
   "name": "email",
   "strategy": "email",
   "enabled_clients": [
-    "jy6mjsIn64b8C15j06mAjmUWgAvPdK1r"
+    "jy6mjsIn64b8C15j06mAjmUWgAvPdK1r",
+    "EU Data Act"
   ],
+  "is_domain_connection": false,
   "options": {
-    "from": "no-reply@example.com",
-    "subject": "Your OTP Code",
     "syntax": "liquid",
     "disable_signup": false,
     "brute_force_protection": true,
+
     "otp": {
       "length": 6,
       "time_to_live": 300
+    },
+
+    "email": {
+      "body": "./email.html",
+      "from": "{{ application.name }} <root@auth0.com>",
+      "subject": "Welcome to {{ application.name }}"
     }
   }
 }
