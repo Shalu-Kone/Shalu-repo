@@ -4,10 +4,8 @@ name: Deploy Auth0 Config
 on:
   push:
     branches:
-      - feature/local_ciam
-    paths:
-      - 'EUDA/**'
-      - '.github/workflows/**'
+      - main
+      - feature-update
 
 
 jobs:

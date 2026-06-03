@@ -30,7 +30,7 @@
     "th",
     "tr"
   ],
-  "friendly_name": "EU_Data Test Tenant",
+  "friendly_name": "Test Tenant",
   "picture_url": "https://mykoneplt-dev.aws.kone.com/KONE-logo.png",
   "default_directory": "email",
   "universal_login": {
