@@ -3,7 +3,7 @@
   "strategy": "email",
   "enabled_clients": [
     "z96ZRdnDLN8swNQ8LdgGd1Q2vAFx6xOL",
-    "EU Data Act"
+    "onsite-app"
   ],
   "is_domain_connection": false,
   "options": {
