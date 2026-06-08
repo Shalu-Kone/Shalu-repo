@@ -2,7 +2,7 @@
     "name": "sms",
     "strategy": "sms",
     "enabled_clients": [
-        "jy6mjsIn64b8C15j06mAjmUWgAvPdK1r"
+        "z96ZRdnDLN8swNQ8LdgGd1Q2vAFx6xOL"
     ],
     "is_domain_connection": false,
     "options": {
