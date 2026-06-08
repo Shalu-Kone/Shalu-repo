@@ -1,0 +1,16 @@
+{
+    "name": "sms",
+    "strategy": "sms",
+    "enabled_clients": [
+        "jy6mjsIn64b8C15j06mAjmUWgAvPdK1r"
+    ],
+    "is_domain_connection": false,
+    "options": {
+        "disable_signup": false,
+        "brute_force_protection": true,
+        "otp": {
+            "length": 6,
+            "time_to_live": 300
+        }
+    }
+}
