@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy HTML Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to My Dummy Page</h1>
+        <p>This is a sample HTML page for testing purposes.</p>
+
+        <input type="text" id="name" placeholder="Enter your name">
+        <br><br>
+
+        <button onclick="showMessage()">Submit</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function showMessage() {
+            const name = document.getElementById("name").value;
+            document.getElementById("message").innerText =
+                "Hello, " + (name || "Guest") + "!";
+        }
+    </script>
+
+</body>
+</html>
