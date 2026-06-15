@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ feature-login]
   pull_request:
     branches: [ main ]
 
@@ -16,4 +16,3 @@ jobs:
 
       - name: Run a script
         run: echo "Hello CI/CD"
-``
