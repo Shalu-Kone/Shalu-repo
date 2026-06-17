@@ -4,7 +4,7 @@ on:
   push:
     branches: [feature-login]
   pull_request:
-    branches: [feature-login]
+    branches: [main]
 
 jobs:
   build:
