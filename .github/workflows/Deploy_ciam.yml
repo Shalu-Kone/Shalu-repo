@@ -8,6 +8,9 @@ on:
       - 'Onsite/**'
       - '.github/workflows/**'
 
+permissions:
+  contents: read
+
 
 jobs:
   deploy:
@@ -41,3 +44,7 @@ jobs:
           MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }} 
         run: |
           a0deploy import --config_file config.json --input_file .
+      - name: Remove config file
+        if: always()
+        working-directory: Onsite
+        run: rm -f config.json
