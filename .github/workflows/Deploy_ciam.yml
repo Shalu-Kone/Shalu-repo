@@ -1,4 +1,3 @@
-
 name: Deploy Auth0 Config
 
 on:
@@ -6,8 +5,9 @@ on:
     branches:
       - feature-login
     paths:
-      - 'Onsite/**'
-      - '.github/workflows/**'
+      - "Onsite/**"
+      - ".github/workflows/**"
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,7 +20,18 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: "24"
+
+      - name: Validate required secrets exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          for v in AUTH0_DOMAIN AUTH0_CLIENT_ID AUTH0_CLIENT_SECRET; do
+            if [ -z "${{ secrets[v] }}" ]; then
+              echo "::error::Missing required secret: $v"
+              exit 1
+            fi
+          done
 
       - name: Install Auth0 Deploy CLI
         run: npm install -g auth0-deploy-cli
@@ -33,8 +44,18 @@ jobs:
             "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
             "AUTH0_CLIENT_ID": "${{ secrets.AUTH0_CLIENT_ID }}",
             "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}",
+
+            "EXCLUDED": [
+              "prompts",
+              "branding",
+              "emailProvider"
+            ],
             "EXCLUDED_PROPS": [
               "tenant.custom_domain",
+              "tenant.flags",
+              "tenant.session_lifetime",
+              "tenant.idle_session_lifetime",
+              "tenant.enabled_locales",
               "prompts.custom_text"
             ]
           }
@@ -42,16 +63,22 @@ jobs:
 
       - name: Validate no non-ID enabled_clients values
         working-directory: Onsite
+        shell: bash
         run: |
+          set -euo pipefail
           if grep -R --line-number '"enabled_clients"' .; then
-            echo "Found enabled_clients entries. Ensure values are real Auth0 client IDs, not names like 'EU Data Act'."
+            echo "::warning::Found enabled_clients entries. Ensure values are Auth0 client IDs."
           fi
 
-      - name: Deploy to Auth0
+      - name: Deploy to Auth0 (exclude unsupported tenant features)
         working-directory: Onsite
         env:
           MGMT_API_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
           MGMT_API_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
           MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
         run: |
-          a0deploy import --config_file config.json --input_file .
+          set -euo pipefail
+          a0deploy import \
+            --config_file config.json \
+            --input_file . \
+            --env false

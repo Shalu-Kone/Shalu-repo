@@ -10,12 +10,12 @@
   ],
 
   "allowed_logout_urls": [
-    "https://myapp.com",
+    "https://oidcdebugger.com/debug",
     "http://localhost:3000"
   ],
 
   "web_origins": [
-    "https://myapp.com",
+    "https://oidcdebugger.com/debug",
     "http://localhost:3000"
   ],
 

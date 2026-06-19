@@ -1,3 +1,5 @@
+name: Auth0 User Migration
+
 on:
   workflow_dispatch:
     inputs:
@@ -22,29 +24,60 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
+          cache: npm
+          cache-dependency-path: auth0-user-migration/package-lock.json
 
       - name: Install deps
         working-directory: ./auth0-user-migration
-        run: npm install
+        run: npm ci
+
+      - name: Resolve selected environment secrets
+        id: cfg
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "${{ github.event.inputs.environment }}" in
+            dev)
+              echo "AUTH0_DOMAIN=${{ secrets.AUTH0_DOMAIN }}" >> $GITHUB_ENV
+              echo "AUTH0_CLIENT_ID=${{ secrets.AUTH0_CLIENT_ID }}" >> $GITHUB_ENV
+              echo "AUTH0_CLIENT_SECRET=${{ secrets.AUTH0_CLIENT_SECRET }}" >> $GITHUB_ENV
+              echo "CONNECTION_ID=${{ secrets.CONNECTION_ID }}" >> $GITHUB_ENV
+              ;;
+            sit)
+              echo "AUTH0_DOMAIN=${{ secrets.SIT_AUTH0_DOMAIN }}" >> $GITHUB_ENV
+              echo "AUTH0_CLIENT_ID=${{ secrets.SIT_AUTH0_CLIENT_ID }}" >> $GITHUB_ENV
+              echo "AUTH0_CLIENT_SECRET=${{ secrets.SIT_AUTH0_CLIENT_SECRET }}" >> $GITHUB_ENV
+              echo "CONNECTION_ID=${{ secrets.SIT_CONNECTION_ID }}" >> $GITHUB_ENV
+              ;;
+            prod)
+              echo "AUTH0_DOMAIN=${{ secrets.PROD_AUTH0_DOMAIN }}" >> $GITHUB_ENV
+              echo "AUTH0_CLIENT_ID=${{ secrets.PROD_AUTH0_CLIENT_ID }}" >> $GITHUB_ENV
+              echo "AUTH0_CLIENT_SECRET=${{ secrets.PROD_AUTH0_CLIENT_SECRET }}" >> $GITHUB_ENV
+              echo "CONNECTION_ID=${{ secrets.PROD_CONNECTION_ID }}" >> $GITHUB_ENV
+              ;;
+            *)
+              echo "Invalid environment"; exit 1
+              ;;
+          esac
+
+      - name: Validate required env vars
+        shell: bash
+        run: |
+          set -euo pipefail
+          for v in AUTH0_DOMAIN AUTH0_CLIENT_ID AUTH0_CLIENT_SECRET CONNECTION_ID; do
+            if [ -z "${!v:-}" ]; then
+              echo "::error::$v is empty or missing"
+              exit 1
+            fi
+          done
 
       - name: Run migration
         working-directory: ./auth0-user-migration
         run: node migrate.js
         env:
           ENV: ${{ github.event.inputs.environment }}
-
-          DEV_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
-          DEV_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
-          DEV_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
-          DEV_CONNECTION_ID: ${{ secrets.CONNECTION_ID }}
-
-          SIT_AUTH0_DOMAIN: ${{ secrets.SIT_AUTH0_DOMAIN }}
-          SIT_AUTH0_CLIENT_ID: ${{ secrets.SIT_AUTH0_CLIENT_ID }}
-          SIT_AUTH0_CLIENT_SECRET: ${{ secrets.SIT_AUTH0_CLIENT_SECRET }}
-          SIT_CONNECTION_ID: ${{ secrets.SIT_CONNECTION_ID }}
-
-          PROD_AUTH0_DOMAIN: ${{ secrets.PROD_AUTH0_DOMAIN }}
-          PROD_AUTH0_CLIENT_ID: ${{ secrets.PROD_AUTH0_CLIENT_ID }}
-          PROD_AUTH0_CLIENT_SECRET: ${{ secrets.PROD_AUTH0_CLIENT_SECRET }}
-          PROD_CONNECTION_ID: ${{ secrets.PROD_CONNECTION_ID }}
+          AUTH0_DOMAIN: ${{ env.AUTH0_DOMAIN }}
+          AUTH0_CLIENT_ID: ${{ env.AUTH0_CLIENT_ID }}
+          AUTH0_CLIENT_SECRET: ${{ env.AUTH0_CLIENT_SECRET }}
+          CONNECTION_ID: ${{ env.CONNECTION_ID }}
