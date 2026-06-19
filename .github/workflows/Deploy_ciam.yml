@@ -8,6 +8,10 @@ on:
       - 'Onsite/**'
       - '.github/workflows/**'
 
+permissions:
+  contents: read
+
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,21 +28,21 @@ jobs:
       - name: Install Auth0 Deploy CLI
         run: npm install -g auth0-deploy-cli
     
-      - name: Create config file
-        working-directory: Onsite
-        run: |
-          echo '{
-            "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
-            "AUTH0_CLIENT_ID": "${{ secrets.AUTH0_CLIENT_ID }}",
-            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}"
-          }' > config.json
-
       - name: Deploy to Auth0
         working-directory: Onsite
         env:
-          MGMT_API_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
-          MGMT_API_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
-          MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }} 
+          AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
+          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+          AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
         run: |
-          a0deploy import --config_file config.json --input_file . 
-          
+          config_file="$(mktemp)"
+          chmod 600 "$config_file"
+          trap 'rm -f "$config_file"' EXIT
+          cat > "$config_file" <<EOF
+          {
+            "AUTH0_DOMAIN": "$AUTH0_DOMAIN",
+            "AUTH0_CLIENT_ID": "$AUTH0_CLIENT_ID",
+            "AUTH0_CLIENT_SECRET": "$AUTH0_CLIENT_SECRET"
+          }
+          EOF
+          a0deploy import --config_file "$config_file" --input_file .
