@@ -1,0 +1,44 @@
+
+name: Deploy Auth0 Config
+
+on:
+  push:
+    branches:
+      - feature-login
+    paths:
+      - 'onsite-app/**'
+      - '.github/workflows/**'
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Auth0 Deploy CLI
+        run: npm install -g auth0-deploy-cli
+    
+      - name: Create config file
+        working-directory: onsite-app
+        run: |
+          echo '{
+            "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
+            "AUTH0_CLIENT_ID": "${{ secrets.AUTH0_CLIENT_ID }}",
+            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}"
+          }' > config.json
+      - name: Deploy to Auth0
+        working-directory: onsite-app
+        env:
+          MGMT_API_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
+          MGMT_API_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+          MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }} 
+        run: |
+          a0deploy import --config_file config.json --input_file .

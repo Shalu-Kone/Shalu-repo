@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {%- auth0:head -%}
+  <style>
+      body._widget-auto-layout {
+          background-color: #f3f6fe;
+          background-image: url('https://mykoneplt-dev.aws.kone.com/login-bg-image.jpg');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      .login-id .ulp-alternate-action {
+        display: none;
+      }
+      .login-id header div p {
+        display: none;
+      }
+      button[data-provider="oauth2"] span[data-provider="oauth2"] {
+          /* Hide the default icon for "Login with password" button */
+          display: none;
+      }
+      button[data-provider="oauth2"] {
+          justify-content: center;
+          padding-left: 0;
+      }
+  </style>
+  <title>{{ prompt.screen.texts.pageTitle }}</title>
+</head>
+<body class="_widget-auto-layout">
+{%- auth0:widget -%}
+</body>
+</html>
