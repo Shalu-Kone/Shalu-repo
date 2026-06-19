@@ -6,7 +6,7 @@ on:
     branches:
       - feature-login
     paths:
-      - 'onsite-app/**'
+      - 'Onsite/**'
       - '.github/workflows/**'
 
 
@@ -27,7 +27,7 @@ jobs:
         run: npm install -g auth0-deploy-cli
     
       - name: Create config file
-        working-directory: onsite-app
+        working-directory: Onsite
         run: |
           echo '{
             "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
@@ -35,7 +35,7 @@ jobs:
             "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}"
           }' > config.json
       - name: Deploy to Auth0
-        working-directory: onsite-app
+        working-directory: Onsite
         env:
           MGMT_API_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
           MGMT_API_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
