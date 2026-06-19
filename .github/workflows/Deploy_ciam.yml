@@ -9,36 +9,49 @@ on:
       - 'Onsite/**'
       - '.github/workflows/**'
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install Auth0 Deploy CLI
         run: npm install -g auth0-deploy-cli
-    
+
       - name: Create config file
         working-directory: Onsite
         run: |
-          echo '{
+          cat > config.json << 'EOF'
+          {
             "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
             "AUTH0_CLIENT_ID": "${{ secrets.AUTH0_CLIENT_ID }}",
-            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}"
-          }' > config.json
+            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}",
+            "EXCLUDED_PROPS": [
+              "tenant.custom_domain",
+              "prompts.custom_text"
+            ]
+          }
+          EOF
+
+      - name: Validate no non-ID enabled_clients values
+        working-directory: Onsite
+        run: |
+          if grep -R --line-number '"enabled_clients"' .; then
+            echo "Found enabled_clients entries. Ensure values are real Auth0 client IDs, not names like 'EU Data Act'."
+          fi
+
       - name: Deploy to Auth0
         working-directory: Onsite
         env:
           MGMT_API_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
           MGMT_API_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
-          MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }} 
+          MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
         run: |
           a0deploy import --config_file config.json --input_file .
