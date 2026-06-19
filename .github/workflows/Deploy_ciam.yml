@@ -5,9 +5,8 @@ on:
     branches:
       - feature-login
     paths:
-      - "Onsite/**"
-      - ".github/workflows/**"
-  workflow_dispatch:
+      - 'Onsite/**'
+      - '.github/workflows/**'
 
 jobs:
   deploy:
@@ -15,70 +14,31 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: "24"
-
-      - name: Validate required secrets exist
-        shell: bash
-        run: |
-          set -euo pipefail
-          for v in AUTH0_DOMAIN AUTH0_CLIENT_ID AUTH0_CLIENT_SECRET; do
-            if [ -z "${{ secrets[v] }}" ]; then
-              echo "::error::Missing required secret: $v"
-              exit 1
-            fi
-          done
+          node-version: '20'
 
       - name: Install Auth0 Deploy CLI
         run: npm install -g auth0-deploy-cli
-
+    
       - name: Create config file
         working-directory: Onsite
         run: |
-          cat > config.json << 'EOF'
-          {
+          echo '{
             "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
             "AUTH0_CLIENT_ID": "${{ secrets.AUTH0_CLIENT_ID }}",
-            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}",
+            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}"
+          }' > config.json
 
-            "EXCLUDED": [
-              "prompts",
-              "branding",
-              "emailProvider"
-            ],
-            "EXCLUDED_PROPS": [
-              "tenant.custom_domain",
-              "tenant.flags",
-              "tenant.session_lifetime",
-              "tenant.idle_session_lifetime",
-              "tenant.enabled_locales",
-              "prompts.custom_text"
-            ]
-          }
-          EOF
-
-      - name: Validate no non-ID enabled_clients values
-        working-directory: Onsite
-        shell: bash
-        run: |
-          set -euo pipefail
-          if grep -R --line-number '"enabled_clients"' .; then
-            echo "::warning::Found enabled_clients entries. Ensure values are Auth0 client IDs."
-          fi
-
-      - name: Deploy to Auth0 (exclude unsupported tenant features)
+      - name: Deploy to Auth0
         working-directory: Onsite
         env:
           MGMT_API_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
           MGMT_API_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
-          MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
+          MGMT_API_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }} 
         run: |
-          set -euo pipefail
-          a0deploy import \
-            --config_file config.json \
-            --input_file . \
-            --env false
+          a0deploy import --config_file config.json --input_file . 
+          
