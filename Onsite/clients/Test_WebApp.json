@@ -1,0 +1,24 @@
+{
+  "client_id": "z96ZRdnDLN8swNQ8LdgGd1Q2vAFx6xOL",
+  "name": "onsite-app",
+  "app_type": "spa",
+  "oidc_conformant": true,
+
+  "callbacks": [
+    "https://oidcdebugger.com/debug",
+    "http://localhost:3000"
+  ],
+
+  "allowed_logout_urls": [
+    "https://oidcdebugger.com"
+  ],
+
+  "web_origins": [
+    "https://oidcdebugger.com"
+  ],
+
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ]
+}
