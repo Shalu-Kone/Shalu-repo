@@ -3,7 +3,7 @@
     "en",
   ],
   "friendly_name": "tenant",
-  "picture_url": "https://mykoneplt-dev.aws.kone.com/KONE-logo.png",
+  "picture_url": 
   "default_directory": "email",
   "universal_login": {
     "colors": {
