@@ -1,0 +1,43 @@
+name: Test SMS Connections
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Onsite/connections/sms.json'
+      - 'Onsite/tests/sms-connection.test.js'
+      - 'package.json'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'Onsite/connections/sms.json'
+      - 'Onsite/tests/sms-connection.test.js'
+      - 'package.json'
+  workflow_dispatch:
+
+jobs:
+  test-sms-connections:
+    name: Test SMS Connections
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run SMS connection tests
+        run: npm run test:sms
+        env:
+          AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
+          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+          AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
