@@ -1,0 +1,20 @@
+{
+  "name": "sms",
+  "strategy": "sms",
+  "enabled_clients": [],
+  "options": {
+    "disable_signup": false,
+    "name": "sms",
+    "twilio_sid": "%%TWILIO_SID%%",
+    "twilio_token": "%%TWILIO_TOKEN%%",
+    "from": "%%SMS_FROM%%",
+    "syntax": "md_with_macros",
+    "template": "Your verification code is: @@password@@",
+    "totp": {
+      "time_step": 300,
+      "length": 6
+    },
+    "password_policy": "none",
+    "brute_force_protection": true
+  }
+}
