@@ -1,0 +1,23 @@
+{
+  "options": {
+    "name": "sms",
+    "totp": {
+      "length": 6,
+      "time_step": 600
+    },
+    "provider": "twilio",
+    "twilio_sid": "##TWILIO_SID##",
+    "twilio_token": "##TWILIO_TOKEN##",
+    "from": "##TWILIO_FROM##",
+    "template": "./sms.txt",
+    "syntax": "md_with_macros",
+    "disable_signup": false,
+    "brute_force_protection": true
+  },
+  "strategy": "sms",
+  "name": "sms",
+  "is_domain_connection": false,
+  "enabled_clients": [
+    "EUDA"
+  ]
+}

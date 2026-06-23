@@ -2,5 +2,10 @@
   "AUTH0_DOMAIN": "",
   "AUTH0_CLIENT_ID": "",
   "AUTH0_CLIENT_SECRET": "",
-  "ASSETS_BASE_URL": "https://mykoneplt-dev.aws.kone.com"
+  "ASSETS_BASE_URL": "https://mykoneplt-dev.aws.kone.com",
+  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+    "TWILIO_SID": "your-twilio-sid",
+    "TWILIO_TOKEN": "your-twilio-token",
+    "TWILIO_FROM": "+1234567890"
+  }
 }

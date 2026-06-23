@@ -32,7 +32,12 @@ jobs:
           echo '{
             "AUTH0_DOMAIN": "${{ secrets.AUTH0_DOMAIN }}",
             "AUTH0_CLIENT_ID": "${{ secrets.AUTH0_CLIENT_ID }}",
-            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}"
+            "AUTH0_CLIENT_SECRET": "${{ secrets.AUTH0_CLIENT_SECRET }}",
+            "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+              "TWILIO_SID": "${{ secrets.TWILIO_SID }}",
+              "TWILIO_TOKEN": "${{ secrets.TWILIO_TOKEN }}",
+              "TWILIO_FROM": "${{ secrets.TWILIO_FROM }}"
+            }
           }' > config.json
       - name: Deploy to Auth0
         working-directory: EUDA
