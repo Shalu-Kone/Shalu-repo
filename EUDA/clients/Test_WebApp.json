@@ -5,18 +5,15 @@
   "oidc_conformant": true,
 
   "callbacks": [
-    "https://oidcdebugger.com/debug",
-    "http://localhost:3000"
+    "https://oidcdebugger.com/debug"
   ],
 
   "allowed_logout_urls": [
-    "https://oidcdebugger.com/debug",
-    "http://localhost:3000"
+    "https://oidcdebugger.com/debug"
   ],
 
   "web_origins": [
-    "https://oidcdebugger.com/debug",
-    "http://localhost:3000"
+    "https://oidcdebugger.com/debug"
   ],
 
   "grant_types": [
