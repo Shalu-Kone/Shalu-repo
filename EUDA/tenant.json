@@ -3,7 +3,7 @@
     "en",
   ],
   "friendly_name": "learning tenant",
-  "picture_url": 
+  "picture_url": "",
   "default_directory": "email",
   "universal_login": {
     "colors": {
