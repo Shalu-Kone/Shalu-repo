@@ -2,7 +2,7 @@
   "enabled_locales": [
     "en",
   ],
-  "friendly_name": "tenant",
+  "friendly_name": "learning tenant",
   "picture_url": 
   "default_directory": "email",
   "universal_login": {
