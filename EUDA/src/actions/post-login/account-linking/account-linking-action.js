@@ -148,57 +148,42 @@ exports.onExecutePostLogin = async (event, api) => {
   }
 
   // -------------------------------
-  // 4) SMP API Call (WITH LOGS ✅)
-  // -------------------------------
-  try {
-    console.log("🌐 SMP Lookup Started");
+// 4) SMP API Call (UPDATED)
+// -------------------------------
+try {
+  const SMP_API_URL = event.secrets.SMP_API_URL;
+  const SMP_API_KEY = event.secrets.SMP_API_KEY;
 
-    const useMock = true; // ✅ KEEP TRUE while using dummy API key
+  const smpResponse = await fetch(SMP_API_URL, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${SMP_API_KEY}`
+    }
+  });
 
-    let smpUser;
+  const smpText = await smpResponse.text();
 
-    if (useMock) {
-      smpUser = {
-        id: "smp_mock_001",
-        email: email,
-        phone: phone,
-        status: "mock-user"
-      };
+  if (smpResponse.ok && smpText) {
+    let smpData = JSON.parse(smpText);
 
-      console.log("✅ Using MOCK SMP user:", smpUser);
+    // ✅ Your mock API returns ARRAY → take first user
+    const smpUser = Array.isArray(smpData) ? smpData[0] : smpData;
 
-    } else {
-      console.log("📡 Calling SMP API...");
+    if (smpUser) {
+      // ✅ Attach SMP data to ID token
+      api.idToken.setCustomClaim("https://smp/user", smpUser);
 
-      const smpResponse = await fetch(
-        `https://SMP_API/users?email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone || '')}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${event.secrets.SMP_API_KEY}`
-          }
-        }
-      );
-
-      const smpText = await smpResponse.text();
-      console.log("📨 SMP Raw Response:", smpText);
-
-      if (smpResponse.ok && smpText) {
-        smpUser = JSON.parse(smpText);
-        console.log("✅ SMP API Success:", smpUser);
-      } else {
-        console.log("⚠️ SMP lookup failed:", smpText);
-        return;
+      // ✅ Store smp_id in user metadata
+      if (smpUser.smp_id) {
+        api.user.setUserMetadata("smp_id", smpUser.smp_id);
       }
     }
-
-    // ✅ Attach SMP data to token
-    api.idToken.setCustomClaim("https://smp/user", smpUser);
-    console.log("✅ SMP data added to token");
-
-  } catch (err) {
-    console.log("❌ SMP lookup error:", err.message);
+  } else {
+    console.log("SMP lookup failed:", smpText);
   }
 
-  console.log("✅ Action Completed");
+} catch (err) {
+  console.log("SMP lookup error:", err.message);
+}
 };
