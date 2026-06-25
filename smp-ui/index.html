@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SMP Mock UI</title>
+</head>
+<body>
+
+  <h2>SMP User Data</h2>
+
+  <!-- Button -->
+  <button onclick="loadData()">Load Data</button>
+
+  <!-- Output -->
+  <div id="output"></div>
+
+  <script>
+    async function loadData() {
+      try {
+        const res = await fetch(
+          "https://6a3ce682d8e212699e2302dd.mockapi.io/SMP/1"
+        );
+
+        const data = await res.json();
+
+        document.getElementById("output").innerHTML = `
+          <p><b>Name:</b> ${data.name}</p>
+          <p><b>Email:</b> ${data.email}</p>
+          <p><b>Phone:</b> ${data.phone}</p>
+          <p><b>SMP ID:</b> ${data.smp_id}</p>
+        `;
+      } catch (error) {
+        console.error(error);
+        document.getElementById("output").innerText = "Error loading API";
+      }
+    }
+  </script>
+
+</body>
+</html>
