@@ -1,0 +1,25 @@
+{
+  "name": "onsite-app",
+  "app_type": "spa",
+  "oidc_conformant": true,
+
+  "callbacks": [
+    "https://oidcdebugger.com/debug",
+    "http://localhost:3000/callback"
+  ],
+
+  "allowed_logout_urls": [
+    "https://oidcdebugger.com/debug",
+    "http://localhost:3000/logout"
+  ],
+
+  "web_origins": [
+    "https://oidcdebugger.com/debug",
+    "http://localhost:3000"
+  ],
+
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ]
+}
