@@ -1,5 +1,5 @@
 {
-  "name": "SMP API",
+  "name": "SMP",
   "code": "./src/actions/post-login/SMP/SMP.js",
   "runtime": "node22",
   "status": "built",
