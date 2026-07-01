@@ -1,15 +1,14 @@
 exports.onExecutePostLogin = async (event, api) => {
-  const axios = require("axios");
-
   try {
     const apiKey = event.secrets.SMP_API_KEY;
 
     const email = event.user.email;
     const phone = event.user.phone_number;
 
-    const response = await axios.get(
+    const response = await fetch(
       "https://6a3ce682d8e212699e2302dd.mockapi.io/SMP",
       {
+        method: "GET",
         headers: {
           Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json"
@@ -17,23 +16,36 @@ exports.onExecutePostLogin = async (event, api) => {
       }
     );
 
-    const data = response.data;
+    // ✅ Handle HTTP errors
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-    // ✅ Match user manually (since mock API likely returns full list)
+    const data = await response.json();
+
+    // ✅ Safe check if API returns array
+    if (!Array.isArray(data)) {
+      console.log("Unexpected API response format");
+      return;
+    }
+
     const smpUser = data.find(
       user => user.email === email || user.phone === phone
     );
 
     if (smpUser) {
-
-      // ✅ Store safe fields only
+      // ✅ Store safe metadata
       api.user.setAppMetadata("smp_id", smpUser.id);
       api.user.setAppMetadata("smp_name", smpUser.name);
 
-      // ✅ Send data to frontend
+      // ✅ Send only required fields (avoid sending full object if sensitive)
       api.idToken.setCustomClaim(
         "https://yourapp.com/smp_user",
-        smpUser
+        {
+          id: smpUser.id,
+          name: smpUser.name,
+          email: smpUser.email
+        }
       );
 
     } else {
@@ -41,6 +53,6 @@ exports.onExecutePostLogin = async (event, api) => {
     }
 
   } catch (error) {
-    console.log("❌ SMP API failed:", error.response?.data || error.message);
+    console.log("❌ SMP API failed:", error.message);
   }
 };
