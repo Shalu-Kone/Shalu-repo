@@ -13,7 +13,7 @@ exports.onExecutePostLogin = async (event, api) => {
     
     const config = {
       method: 'GET',
-      url: `${apiUrl}/users/${event.user.user_id}`,
+      url: `https://6a3ce682d8e212699e2302dd.mockapi.io/SMP`,
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
